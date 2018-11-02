@@ -1,4 +1,5 @@
 // components/card.js
+var APP = getApp( );
 import util from '../../utils/util.js'
 Component({
   /**
@@ -31,10 +32,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    qrcodeUrl : ""
   },
   ready () {
     this.format();
+    this.getRQcode();
   },
   /**
    * 组件的方法列表
@@ -58,6 +60,27 @@ Component({
         // 触发格式化事件
         this.triggerEvent('format', this.data.cardInfo);
       });
+    },
+    // 获取场景二维码
+    getRQcode() {
+      if (!this.data.cardInfo.id)return;
+      // var page = 'pages%5ccard_info%5ccard_info';
+      var page = '';
+      wx.request({
+        url: APP.globalData.pathPrefix + '/cardController.do?getQRCode&page='+page+'&scene=' + this.data.cardInfo.id,
+        header: {
+          'content-type': 'application/octet-stream',
+        },
+        success: res => {
+          this.setData({
+            "qrcodeUrl": "data:image/png;base64," + res.data
+          })
+          // this.data.qrcodeUrl = res.data;
+        },
+        fail: res => {
+          console.log(res);
+        }
+      })
     },
     // 点击
     _tap(e){

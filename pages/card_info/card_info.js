@@ -4,7 +4,8 @@ import util from '../../utils/util.js'
 Page({
   data: {
     // 名片信息
-    cardInfo: {}
+    cardInfo: {},
+    current_empId: null
   },
   // 拨打电话
   makePhoneCall(e) {
@@ -66,7 +67,7 @@ Page({
   // 返回列表页
   backToList(){
     console.log('backToList');
-    wx.switchTab({
+    wx.navigateTo({
       url: '/pages/index/index'
     })
   },
@@ -77,19 +78,12 @@ Page({
       "cardInfo": e.detail
     });
   },
-  // 获取场景二维码
-  getRQcode(empId){
-    APP.getAccessToken((res) => {
-      console.log(res);
-    });
-  },
   // 获取名片详情
-  getCardInfo(empId){
+  getCardInfo(empId, isBind){
     console.log('getCardInfo');
     wx.showLoading({// 弹出加载提示
       title: '加载卡片信息...',
       success: (res) => {
-        this.getRQcode(empId);
         wx.request({
           url: APP.globalData.pathPrefix + '/cardController.do?getCardInfo&empId=' + empId,
           success: res => {
@@ -99,30 +93,42 @@ Page({
             });
           },
           fail: res => { }
-        })
+        });
+        if(isBind){//是否需要绑定用户
+          // 获取微信用户openId
+          APP.getOpenId(openId => {
+            // 绑定微信用户与名片的关联
+            wx.request({
+              url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
+              success: res => { 
+                console.log(res) 
+              },
+              fail: res => {
+                console.log(res);
+              }
+            })
+          });
+        }
       }
     });
   },
+  _onload(options){
+    var empId = (options && options.empId) || APP.globalData.current_empId;
+    if (this.data.current_empId === empId)return;
+    this.data.current_empId = empId;
+    if (empId) {// 有传员工id
+      this.getCardInfo(empId, true);//获取名片详情
+    } else {//没传员工id
+      // wx.showToast({
+      //   title: '参数错误！',
+      //   icon: 'none'
+      // });
+    }
+  },
   onLoad(options) {
-    console.log('onload:' + options.empId);
-    if (options.empId) {// 有传员工id
-      this.getCardInfo(options.empId);//获取名片详情
-    }else{//没传员工id
-      wx.showToast({
-        title: '参数错误！',
-        icon: 'none'
-      });
-    }
-    if (options.from !== 'list'){// 从扫码进入（非列表页进来）
-      // 获取微信用户openId
-      APP.getOpenId(openId => {
-        // 绑定微信用户与名片的关联
-        wx.request({
-          url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + options.empId,
-          success: res => { console.log(res) },
-          fail: res => { }
-        })
-      });
-    }
+    this._onload(options);
+  },
+  onShow(options){
+    this._onload(options);
   }
 })

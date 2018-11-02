@@ -1,7 +1,7 @@
 <!--components/card.wxml-->
 <view class="card_wrap">
     <text wx:if="{{hasTime}}" class="createTime">{{cardInfo.createTime}} 获得</text>
-    <view class="card" data-id="{{cardInfo.id}}" bindtap="_tap">
+    <view class="card" data-id="{{cardInfo.id}}" catchtap="_tap">
     <icon wx:if="{{hasRemove}}" class="deleteBtn" data-id="{{cardInfo.id}}" type="cancel" size="16" catchtap="_remove" color="#666"></icon>
       <image class="logo" 
       src="../../images/joinshare_logo_stock_code_600.png">
@@ -15,6 +15,7 @@
           <text wx:for="{{cardInfo.jobPositions}}" wx:key="*this" class="position">{{item}}</text>
         </view>
       </view>
+      <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}"></image>
       <view class="contract_wrap">
         <view class="company_name">{{cardInfo.orgName}}</view>
         <view class="address other_info">

@@ -70,6 +70,13 @@ page{
   margin: 0rpx 15rpx 0rpx 0rpx;
   padding: 0rpx;
 }
+.card_wrap .card .qrcode{
+  position:absolute;
+  left:20rpx;
+  bottom:60rpx;
+  width:100rpx;
+  height:100rpx;
+}
 .card_wrap .card .contract_wrap{
   margin-top: 40rpx;
   padding-left: 140rpx;

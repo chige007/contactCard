@@ -42,7 +42,7 @@
 					"id": 0,
 					"name": "扫一扫进入名片详情",
 					"pathName": "pages/card_info/card_info",
-					"query": "empId= ff8080815ac301d1015ac72cf1941ed6",
+					"query": "empId=402888e747850d560147853c98430046",
 					"scene": "1011"
 				}
 			]

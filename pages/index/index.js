@@ -6,10 +6,15 @@ Page({
     // 是否无名片
     noData: false,
     // 名片列表
-    contact_card_list: []
+    contact_card_list: [],
+    //openId
+    openId: null
   },
   // 获取名片列表
-  getCardList(openId, page = 1, rows = 10){
+  getCardList(openId, page = 1, rows = 100){
+    this.setData({
+      "contact_card_list": []
+    });
     wx.showLoading({//加载提示
       title: '加载列表...',
       mask: true,
@@ -37,8 +42,9 @@ Page({
   // 查看名片详情
   checkCardDetail(data) {
     var id = data.detail.id;
-    wx.navigateTo({//调整名片详情页
-      url: '../card_info/card_info?empId=' + id + '&from=list'
+    APP.globalData.current_empId = id;
+    wx.switchTab({//调整名片详情页
+      url: '../card_info/card_info'
     })
   },
   // 删除名片
@@ -55,11 +61,23 @@ Page({
           var id = data.detail.id;
           APP.getOpenId(openId => {
             wx.request({
-              url: APP.pathPrefix + '/cardController.do?unbindCardInfo&openId'+openId+'&empId='+id,
-              success: function (res) {
-                console.log(res);
+              url: APP.globalData.pathPrefix + '/cardController.do?unbindCardInfo&openId='+openId+'&empId='+id,
+              success: res => {
+                debugger;
+                if(res.data.success){
+                  wx.showToast({
+                    title: '删除成功',
+                    icon: 'success'
+                  })
+                  this.getCardList(this.data.openId, 1, 10);
+                }else{
+                  wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none'
+                  });
+                }
               },
-              fail: function (res) {
+              fail: res => {
                 console.log(res);
               }
             });
@@ -77,6 +95,7 @@ Page({
   onLoad() {
     // 获取微信用户openId
     APP.getOpenId(openId => {
+      this.data.openId = openId;
       this.getCardList(openId, 1, 10);
     });
     // 检查session是否有效

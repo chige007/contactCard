@@ -1,16 +1,16 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/card_info/card_info",
     "pages/product/product",
     "pages/website/website",
     "pages/login/login"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#D0021B",
     "navigationBarTitleText": "中盈盛达-我的名片",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "backgroundColor": "#fff",
@@ -18,7 +18,7 @@
     "selectedColor": "#D0021B",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/card_info/card_info",
         "iconPath": "images/i_tabbar_card.png",
         "selectedIconPath": "images/i_tabbar_card_active.png",
         "text": "名片"

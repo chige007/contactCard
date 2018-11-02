@@ -19,6 +19,7 @@ App({
     }
   },
   // 获取accessToken
+  /*
   getAccessToken(callback){
     if (this.globalData.accessToken) {//已有accessToken
       callback && callback(this.globalData.accessToken);
@@ -34,7 +35,7 @@ App({
         }
       });
     }
-  },
+  },*/
   // 获取openId
   getOpenId (callback) {
     if(this.globalData.openId){//已有openId
@@ -109,6 +110,9 @@ App({
     accessToken: null,
     location: null,
     jsCode: null,
-    pathPrefix: 'http://192.168.13.64:8080/UCG_OSS'
+    current_empId: null,
+    pathPrefix: 'http://192.168.13.200:8087/UCG_OSS'
+    // pathPrefix: 'http://127.0.0.0:8080/UCG_OSS'
+    // pathPrefix: 'http://192.168.13.64:8080/UCG_OSS'
   }
 })
