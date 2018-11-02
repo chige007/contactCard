@@ -1,0 +1,49 @@
+<!--components/card.wxml-->
+<view class="card_wrap">
+    <text wx:if="{{hasTime}}" class="createTime">{{cardInfo.createTime}} 获得</text>
+    <view class="card" data-id="{{cardInfo.id}}" bindtap="_tap">
+    <icon wx:if="{{hasRemove}}" class="deleteBtn" data-id="{{cardInfo.id}}" type="cancel" size="16" catchtap="_remove" color="#666"></icon>
+      <image class="logo" 
+      src="../../images/joinshare_logo_stock_code_600.png">
+      </image>
+      <view class="main_info">
+        <view class="name_wrap flex_box">
+          <text class="name">{{cardInfo.name}}\n</text>
+          <text class="pinyin">{{cardInfo.code}}</text>
+        </view>
+        <view class="position_wrap flex_box">
+          <text wx:for="{{cardInfo.jobPositions}}" wx:key="*this" class="position">{{item}}</text>
+        </view>
+      </view>
+      <view class="contract_wrap">
+        <view class="company_name">{{cardInfo.orgName}}</view>
+        <view class="address other_info">
+          <image class="icon" src="../../images/i_card_list_address.png"></image>
+          {{cardInfo.address}}</view>
+        <view class="mobile other_info column_1">
+          <image class="icon" src="../../images/i_card_list_mobile.png"></image>
+          {{cardInfo.phone}}</view>
+        <view class="phone other_info column_2">
+          <image class="icon" src="../../images/i_card_list_phone.png"></image>
+          {{cardInfo.jobPhone}}</view>
+        <view class="fax other_info column_1">
+          <image class="icon" src="../../images/i_card_list_fax.png"></image>
+          {{cardInfo.jobFax}}</view>
+        <view class="website other_info column_2">
+          <image class="icon" src="../../images/i_card_list_website.png"></image>
+          {{cardInfo.website}}</view>
+        <view class="post other_info column_1">
+          <image class="icon" src="../../images/i_card_list_post.png"></image>
+          {{cardInfo.post}}</view>
+        <view class="email other_info column_2">
+          <image class="icon" src="../../images/i_card_list_email.png"></image>
+          {{cardInfo.jobEmail}}</view>
+      </view>
+      <view class="footer">
+        <view class="gray_block"></view>
+        <view class="red_block">
+          <text>中小微企业系统化融资服务供应商</text>
+        </view>
+      </view>
+    </view>
+  </view>

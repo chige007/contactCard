@@ -1,0 +1,53 @@
+<!--pages/card_info/card_info.wxml-->
+<view class="backBtn" bindtap="backToList" >
+  <image src="/images/i_list.png"></image>
+  <text>名片列表</text>
+</view>
+<card wx:if="{{cardInfo}}" cardInfo="{{cardInfo}}" bindformat="format"></card>
+<view class="info_list_wrap">
+  <view wx:if="{{cardInfo.phone}}" class="info_list">
+    <label class="title">手机</label>
+    <label class="value">{{cardInfo.phone}}</label>
+    <button class="btn" plain="true" size="mini" data-phonenum="{{cardInfo.phone}}" bindtap="makePhoneCall">拨打</button>
+  </view>
+  <view wx:if="{{cardInfo.jobPhone}}" class="info_list">
+    <label class="title">座机</label>
+    <label class="value">{{cardInfo.jobPhone}}</label>
+    <button class="btn" plain="true" size="mini" data-phonenum="{{cardInfo.jobPhone}}" bindtap="makePhoneCall">拨打</button>
+  </view>
+  <view wx:if="{{cardInfo.jobFax}}" class="info_list">
+    <label class="title">传真</label>
+    <label class="value">{{cardInfo.jobFax}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.jobFax}}" bindtap="setClipboardData">复制</button>
+  </view>
+  <view wx:if="{{cardInfo.post}}" class="info_list">
+    <label class="title">邮编</label>
+    <label class="value">{{cardInfo.post}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.post}}" bindtap="setClipboardData">复制</button>
+  </view>
+  <view wx:if="{{cardInfo.jobEmail}}" class="info_list">
+    <label class="title">邮件</label>
+    <label class="value">{{cardInfo.jobEmail}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.jobEmail}}" bindtap="setClipboardData">复制</button>
+  </view>
+  <view wx:if="{{cardInfo.orgName}}" class="info_list">
+    <label class="title">公司</label>
+    <label class="value">{{cardInfo.orgName}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.orgName}}" bindtap="setClipboardData">复制</button>
+  </view>
+  <view wx:if="{{cardInfo.jobPositionsStr}}" class="info_list">
+    <label class="title">职位</label>
+    <label class="value">{{cardInfo.jobPositionsStr}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.jobPositionsStr}}" bindtap="setClipboardData">复制</button>
+  </view>
+  <view wx:if="{{cardInfo.address}}" class="info_list">
+    <label class="title">地址</label>
+    <label class="value">{{cardInfo.address}}</label>
+    <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.address}}" bindtap="setClipboardData">复制</button>
+  </view>
+</view>
+<view class="btn_list">
+  <button class="share_btn" size="mini" bindtap="shareCard">分享名片</button>
+  <button class="save_card_btn" size="mini" bindtap="addPhoneContact">存入手机通讯录</button>
+</view>
+

@@ -1,0 +1,210 @@
+/* pages/card_info/card_info.wxss */
+page{
+  height: 100%;
+  background-color: #ecedef;
+}
+.backBtn{
+  padding: 0rpx 30rpx;
+}
+.backBtn image{
+  vertical-align: middle;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+}
+.backBtn text{
+  vertical-align: middle;
+  font-size: 26rpx;
+  color: #999;
+}
+.card_wrap{
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  height: 400rpx;
+}
+.card_wrap .card{
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 420rpx;
+  border-radius: 5rpx;
+}
+.card_wrap .card .logo{
+  height: 48rpx;
+  width: 379rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.card_wrap .card .main_info{
+  padding-left: 140rpx;
+  padding-right: 80rpx;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.card_wrap .card .main_info .name_wrap{
+  line-height: 0.4;
+  padding-right: 20rpx;
+  text-align: left;
+}
+.card_wrap .card .main_info .name_wrap .name{
+  line-height: 1.2;
+  font-size: 40rpx;
+  color: #333;
+}
+.card_wrap .card .main_info .name_wrap .pinyin{
+  line-height: 1;
+  font-size: 16rpx;
+  color: #aaa;
+  margin-top: -30rpx;
+}
+.card_wrap .card .main_info .position_wrap{
+  line-height: 0.5;
+  padding-left: 20rpx;
+  border-left: 1rpx solid #999;
+  text-align: left;
+}
+.card_wrap .card .main_info .position{
+  font-size: 18rpx;
+  line-height: 1;
+  color: #666;
+  display: inline-block;
+  margin: 0rpx 15rpx 0rpx 0rpx;
+  padding: 0rpx;
+}
+.card_wrap .card .contract_wrap{
+  margin-top: 40rpx;
+  padding-left: 140rpx;
+  line-height: 0.5;
+}
+.card_wrap .card .contract_wrap>view{
+  display: inline-block;
+  box-sizing: border-box;
+}
+.card_wrap .card .contract_wrap .company_name{
+  font-size: 22rpx;
+  color: #333;
+  line-height: 1;
+  width: 100%;
+  letter-spacing: 4rpx;
+  margin-bottom: 5rpx;
+}
+.card_wrap .card .contract_wrap .other_info{
+  color: #888;
+  font-size: 18rpx;
+  line-height: 1;
+  padding-top: 4rpx;
+  padding-bottom: 3rpx;
+}
+.card_wrap .card .contract_wrap>.other_info>.icon{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+  vertical-align: -3rpx;
+}
+.card_wrap .card .contract_wrap .other_info.address{
+  letter-spacing: 0rpx;
+}
+.card_wrap .card .contract_wrap .other_info.column_1{
+  width: 38%;
+}
+.card_wrap .card .contract_wrap .other_info.column_2{
+  width: 60%;
+}
+.card_wrap .card .footer{
+  height:40rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.card_wrap .card .footer .gray_block{
+  width: 150rpx;
+  height: 100%;
+  background-color: #7D7979;
+  margin-right: 8rpx;
+  border-radius: 0rpx 0rpx 0rpx 5rpx;
+}
+.card_wrap .card .footer .red_block{
+  width: 100%;
+  height: 100%;
+  background-color: #D0021B;
+  text-align: center;
+  line-height: 0.7;
+  border-radius: 0rpx 0rpx 5rpx 0rpx;
+}
+.card_wrap .card .footer .red_block text{
+  line-height: 1;
+  color: #fff;
+  font-size: 18rpx;
+  letter-spacing: 4rpx;
+}
+
+.info_list_wrap{
+  padding: 10rpx 30rpx 10rpx 30rpx;
+}
+.info_list_wrap .info_list{
+  position: relative;
+  margin-bottom: 40rpx;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  padding-right: 100rpx;
+}
+.info_list_wrap .info_list .title{
+  display: inline-block;
+  color: #999;
+  width: 80rpx;
+}
+.info_list_wrap .info_list .value{
+  display: inline-block;
+  color: #666;
+  max-width: 520rpx;
+}
+.info_list_wrap .info_list .btn{
+  position: absolute;
+  line-height: 45rpx;
+  right: 0rpx;
+  border: 1rpx solid #D0021B;
+  background-color: #ecedef;
+  color: #D0021B;
+  width: 90rpx;
+  padding: 0rpx;
+  height: 50rpx;
+  font-size: 22rpx;
+  margin-top: -5rpx;
+}
+.info_list_wrap .info_list .btn.button-hover{
+  background-color: #D0021B;
+  color: #fff;
+}
+.btn_list{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20rpx;
+}
+.btn_list button{
+  width: 40%;
+  height: 80rpx;
+  line-height: 75rpx;
+}
+.btn_list button.share_btn{
+  border: 1rpx solid #D0021B;
+  background-color: #fff;
+  color: #D0021B;
+}
+.btn_list button.share_btn.button-hover{
+  background-color: #D0021B;
+  color: #fff;
+}
+.btn_list button.save_card_btn{
+  border: none;
+  background-color: #D0021B;
+  color: #fff;
+}
+.btn_list button.save_card_btn.button-hover{
+  background-color: #C0000B;
+}

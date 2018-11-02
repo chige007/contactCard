@@ -1,0 +1,24 @@
+/**index.wxss**/
+page{
+  height: 100%;
+  background-color: #ecedef;
+}
+.noData{
+  padding: 100rpx;
+  text-align: center;
+}
+.noData image{
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  left: 10rpx;
+}
+.noData text{
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.card_list_wrap{
+  padding: 15rpx 0rpx;
+}

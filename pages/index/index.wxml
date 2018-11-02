@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view wx:if="{{noData}}" class="noData">
+  <image src="/images/i_list_nodata.png"></image>
+  <text>没有任何名片</text>
+</view>
+<view class="card_list_wrap">
+  <card wx:for="{{contact_card_list}}" wx:key="empId" wx:for-item="contact" cardInfo="{{contact}}" hasRemove="true" hasTime="true" hasTap="true" bind:tap="checkCardDetail" bind:remove="removeCard"></card>
+</view>

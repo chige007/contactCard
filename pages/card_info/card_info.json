@@ -1,0 +1,30 @@
+{
+  "usingComponents": {
+    "card": "/components/card/card"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#999",
+    "selectedColor": "#D0021B",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/i_tabbar_card.png",
+        "selectedIconPath": "images/i_tabbar_card_active.png",
+        "text": "名片"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "iconPath": "images/i_tabbar_product.png",
+        "selectedIconPath": "images/i_tabbar_product_active.png",
+        "text": "产品"
+      },
+      {
+        "pagePath": "pages/website/website",
+        "iconPath": "images/i_tabbar_computer.png",
+        "selectedIconPath": "images/i_tabbar_computer_active.png",
+        "text": "官网"
+      }
+    ]
+  }
+}
