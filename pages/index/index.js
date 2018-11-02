@@ -63,7 +63,6 @@ Page({
             wx.request({
               url: APP.globalData.pathPrefix + '/cardController.do?unbindCardInfo&openId='+openId+'&empId='+id,
               success: res => {
-                debugger;
                 if(res.data.success){
                   wx.showToast({
                     title: '删除成功',
