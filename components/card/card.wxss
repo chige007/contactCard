@@ -46,21 +46,26 @@ page{
   text-align: left;
 }
 .card_wrap .card .main_info .name_wrap .name{
+  white-space: nowrap;
   line-height: 1.2;
   font-size: 40rpx;
   color: #333;
 }
 .card_wrap .card .main_info .name_wrap .pinyin{
+  white-space: nowrap;
   line-height: 1;
   font-size: 16rpx;
   color: #aaa;
   margin-top: -30rpx;
 }
 .card_wrap .card .main_info .position_wrap{
+  max-height:75rpx;
+  max-width: 65%;
   line-height: 0.5;
   padding-left: 20rpx;
   border-left: 1rpx solid #999;
   text-align: left;
+  overflow: hidden;
 }
 .card_wrap .card .main_info .position{
   font-size: 18rpx;
@@ -109,6 +114,7 @@ page{
 }
 .card_wrap .card .contract_wrap .other_info.address{
   letter-spacing: 0rpx;
+  width: 100%;
 }
 .card_wrap .card .contract_wrap .other_info.column_1{
   width: 38%;

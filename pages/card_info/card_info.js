@@ -30,6 +30,7 @@ Page({
   // 添加到手机通讯录
   addPhoneContact() {
     console.log('addPhoneContact');
+    console.log(this.data.cardInfo);
     wx.addPhoneContact({
       // firstName: this.data.cardInfo.name,
       lastName: this.data.cardInfo.name,
@@ -37,12 +38,13 @@ Page({
       weChatNumber: '',
       addressState: '广东省',
       addressCity: '佛山市',
-      addressStreet: this.data.cardInfo.address,
+      addressStreet: this.data.cardInfo.address.replace(/广东省|佛山市|广州市|云浮市|安徽省|肇庆市|中山市/g,""),
       addressPostalCode: this.data.cardInfo.post,
       organization: this.data.cardInfo.orgName,
       title: this.data.cardInfo.jobPositionsStr,
       workFaxNumber: this.data.cardInfo.jobFax,
       workPhoneNumber: this.data.cardInfo.jobPhone,
+      hostNumber: this.data.cardInfo.jobPhone,
       email: this.data.cardInfo.jobEmail,
       url: this.data.cardInfo.website
     })

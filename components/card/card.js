@@ -53,7 +53,7 @@ Component({
         "cardInfo.createTime": util.formatTimeStamp(cardInfo.createTime, 'Y-M-D h:m:s'),
         "cardInfo.orgName": cardInfo.orgName || "广东中盈盛达融资担保投资股份有限公司",
         "cardInfo.website": cardInfo.website || "www.join-share.net",
-        "cardInfo.address": cardInfo.jobAddress || "佛山市顺德区乐从镇岭南大道南2号中欧中心D栋5楼",
+        "cardInfo.address": cardInfo.jobAddress || cardInfo.address || "佛山市顺德区乐从镇岭南大道南2号中欧中心D栋5楼",
         "cardInfo.jobPositions": position,
         "cardInfo.jobPositionsStr": position.join(',')
       },() => {
