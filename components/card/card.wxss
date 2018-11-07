@@ -35,7 +35,7 @@ page{
 .card_wrap .card .main_info{
   padding-left: 140rpx;
   padding-right: 80rpx;
-  margin: 30rpx auto;
+  margin: 30rpx auto 25rpx auto;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -105,6 +105,9 @@ page{
   line-height: 1;
   padding-top: 4rpx;
   padding-bottom: 3rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .card_wrap .card .contract_wrap>.other_info>.icon{
   width: 24rpx;
