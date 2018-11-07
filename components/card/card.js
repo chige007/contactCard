@@ -45,7 +45,7 @@ Component({
     // 格式化名片信息
     format(){
       var cardInfo = this.data.cardInfo;
-      console.log(cardInfo);
+      // console.log(cardInfo);
       if(!cardInfo.id)return;
       var position = cardInfo.jobPositions && cardInfo.jobPositions.split(',') || [cardInfo.primaryJobName];
       this.setData({

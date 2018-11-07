@@ -5,6 +5,7 @@ Page({
   data: {
     // 名片信息
     cardInfo: {},
+    allowLoad: true,
     current_empId: null
   },
   // 拨打电话
@@ -83,6 +84,9 @@ Page({
   // 获取名片详情
   getCardInfo(empId, isBind){
     console.log('getCardInfo');
+    this.setData({
+      'cardInfo': null
+    });
     wx.showLoading({// 弹出加载提示
       title: '加载卡片信息...',
       success: (res) => {
@@ -93,6 +97,7 @@ Page({
             this.setData({
               "cardInfo": res.data.obj
             });
+            this.data.allowLoad = true;
           },
           fail: res => { }
         });
@@ -115,22 +120,24 @@ Page({
     });
   },
   _onload(options){
+    this.data.allowLoad = false;
     var empId = (options && options.empId) || APP.globalData.current_empId;
-    if (this.data.current_empId === empId)return;
+    // if (this.data.current_empId === empId)return;
     this.data.current_empId = empId;
     if (empId) {// 有传员工id
-      this.getCardInfo(empId, true);//获取名片详情
+      this.getCardInfo(empId, (options && options.empId) ? true : false);//获取名片详情
     } else {//没传员工id
-      // wx.showToast({
-      //   title: '参数错误！',
-      //   icon: 'none'
-      // });
+      wx.showToast({
+        title: '参数错误！',
+        icon: 'none'
+      });
     }
   },
   onLoad(options) {
     this._onload(options);
   },
   onShow(options){
-    this._onload(options);
+    if (this.data.allowLoad)
+      this._onload(options);
   }
 })
