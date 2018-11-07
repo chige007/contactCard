@@ -12,7 +12,7 @@
           <text class="pinyin">{{cardInfo.code}}</text>
         </view>
         <view class="position_wrap flex_box">
-          <text wx:for="{{cardInfo.jobPositions}}" wx:key="*this" class="position">{{item}}</text>
+          <text wx:for="{{cardInfo.jobPositions}}" wx:for-index="idx" wx:if="{{idx<5}}"  wx:key="*this" class="position">{{item}}</text>
         </view>
       </view>
       <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}"></image>
