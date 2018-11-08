@@ -3,7 +3,7 @@
   <image src="/images/i_list.png"></image>
   <text>名片列表</text>
 </view>
-<card wx:if="{{cardInfo}}" cardInfo="{{cardInfo}}" bindformat="format"></card>
+<card wx:if="{{cardInfo}}" cardInfo="{{cardInfo}}" bindformat="format" isShowQRcode="true"></card>
 <view class="info_list_wrap">
   <view wx:if="{{cardInfo.phone}}" class="info_list">
     <label class="title">手机</label>

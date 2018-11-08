@@ -11,6 +11,11 @@ Component({
       type: Object,
       value: {}
     },
+    // 是否显示小程序二维码
+    isShowQRcode: {
+      type: Boolean,
+      value: false
+    },
     // 是否能删除
     hasRemove: {
       type: Boolean,
@@ -36,9 +41,6 @@ Component({
   },
   ready () {
     this.format();
-    this.setData({
-      "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=&scene=' + this.data.cardInfo.id
-    });
   },
   /**
    * 组件的方法列表
@@ -69,6 +71,11 @@ Component({
         // 触发格式化事件
         this.triggerEvent('format', this.data.cardInfo);
       });
+      if (this.data.isShowQRcode){
+        this.setData({
+          "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=&scene=' + this.data.cardInfo.id
+        })
+      }
     },
     // 点击
     _tap(e){
