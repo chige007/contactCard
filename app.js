@@ -113,6 +113,7 @@ App({
     jsCode: null,
     current_empId: null,
     pathPrefix: 'http://192.168.13.200:8087/UCG_OSS'
+    // pathPrefix: 'http://202.104.31.178:8080/UCG_OSS'
     // pathPrefix: 'http://127.0.0.0:8080/UCG_OSS'
     // pathPrefix: 'http://192.168.13.64:8080/UCG_OSS'
   }
