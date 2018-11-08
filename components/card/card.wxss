@@ -54,7 +54,7 @@ page{
 .card_wrap .card .main_info .name_wrap .pinyin{
   white-space: nowrap;
   line-height: 1;
-  font-size: 16rpx;
+  font-size: 18rpx;
   color: #aaa;
   margin-top: -30rpx;
 }

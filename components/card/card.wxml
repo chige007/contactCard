@@ -15,7 +15,7 @@
           <text wx:for="{{cardInfo.jobPositions}}" wx:for-index="idx" wx:if="{{idx<5}}"  wx:key="*this" class="position">{{item}}</text>
         </view>
       </view>
-      <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}"></image>
+      <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}" catchtap="checkQrcode"></image>
       <view class="contract_wrap">
         <view class="company_name">{{cardInfo.orgName}}</view>
         <view class="address other_info">
