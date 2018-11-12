@@ -72,8 +72,9 @@ Component({
         this.triggerEvent('format', this.data.cardInfo);
       });
       if (this.data.isShowQRcode){
+        var page = 'pages%2fcard_info%2fcard_info';
         this.setData({
-          "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=&scene=' + this.data.cardInfo.id
+          "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=' + page +'&scene=' + this.data.cardInfo.id
         })
       }
     },

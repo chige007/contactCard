@@ -47,7 +47,7 @@
   </view>
 </view>
 <view class="btn_list">
-  <button class="share_btn" size="mini" bindtap="shareCard">分享名片</button>
+  <button class="share_btn" size="mini" open-type="share">分享名片</button>
   <button class="save_card_btn" size="mini" bindtap="addPhoneContact">存入手机通讯录</button>
 </view>
 

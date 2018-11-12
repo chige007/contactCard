@@ -31,10 +31,9 @@ Page({
   // 添加到手机通讯录
   addPhoneContact() {
     console.log('addPhoneContact');
-    console.log(this.data.cardInfo);
     wx.addPhoneContact({
-      // firstName: this.data.cardInfo.name,
-      lastName: this.data.cardInfo.name,
+      firstName: this.data.cardInfo.name,
+      // lastName: this.data.cardInfo.name,
       mobilePhoneNumber: this.data.cardInfo.phone,
       weChatNumber: '',
       addressState: '广东省',
@@ -47,7 +46,13 @@ Page({
       workPhoneNumber: this.data.cardInfo.jobPhone,
       hostNumber: this.data.cardInfo.jobPhone,
       email: this.data.cardInfo.jobEmail,
-      url: this.data.cardInfo.website
+      url: this.data.cardInfo.website,
+      success: res => {
+        console.log(res);
+      },
+      fail: res => {
+        console.log(res);
+      }
     })
   },
   // 分享名片
@@ -108,7 +113,7 @@ Page({
             wx.request({
               url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
               success: res => { 
-                console.log(res) 
+                console.log(res.data.msg);
               },
               fail: res => {
                 console.log(res);
@@ -127,10 +132,18 @@ Page({
     if (empId) {// 有传员工id
       this.getCardInfo(empId, (options && options.empId) ? true : false);//获取名片详情
     } else {//没传员工id
-      wx.showToast({
-        title: '参数错误！',
-        icon: 'none'
-      });
+      // wx.showToast({
+      //   title: '参数错误！',
+      //   icon: 'none'
+      // });
+    }
+  },
+  onShareAppMessage(ops){
+    return{
+      title: '中盈盛达员工名片',
+      path: 'pages/card_info/card_info?empId=' + this.data.cardInfo.id,
+      success: function (res) {
+      }
     }
   },
   onLoad(options) {
